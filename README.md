@@ -1,89 +1,90 @@
-# Liquid-Pull-To-Refresh
+# Liquid Pull To Refresh
 
-A customizable pull-to-refresh widget for Flutter projects, featuring an attractive liquid physics-based animation.
+[![GitHub license](https://img.shields.io/github/license/thisisyoussef/Lliquid-Pull-To-Refresh.svg)](https://github.com/thisisyoussef/Liquid-Pull-To-Refresh/blob/master/LICENSE)
 
-![Demo Gif](display/demo.gif)
+Liquid Pull To Refresh is a highly customizable Flutter library that adds liquid-inspired Pull-To-Refresh functionality to your apps. It provides a unique and visually engaging way to update content and adds a touch of dynamism.
 
 ## Table of Contents
 
-1. [Project Overview](#project-overview)
-2. [Installation Instructions](#installation-instructions)
-3. [Usage Guide](#usage-guide)
-4. [Features and Functionality](#features-and-functionality)
-5. [Contributing Guidelines](#contributing-guidelines)
-6. [License Information](#license-information)
-7. [Contact Information](#contact-information)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features and Functionality](#features-and-functionality)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Project Overview
+## Installation
 
-Liquid-Pull-To-Refresh is a Flutter widget that provides an attractive and customizable pull-to-refresh experience for your projects. It leverages Flutter's built-in animation capabilities and uses the liquid physics engine provided by the Flutter Physics package to create a visually engaging liquid effect during the refresh process.
+To use the library in your Flutter project, follow the steps below:
 
-### Technologies and Tools
-
-The project is built using:
-
-- **Flutter:** The popular open-source UI software development kit that helps in building natively compiled applications for mobile, web, and desktop from a single codebase.
-- **Flutter Physics:** A package providing common physics algorithms and related utilities for use in Flutter applications.
-
-These technologies are crucial to the project as they contribute to its cross-platform compatibility, performance, and the liquid physics-based animation effect.
-
-## Installation Instructions
-
-To use Liquid-Pull-To-Refresh in your project, follow these steps:
-
-1. Add the following dependency to your `pubspec.yaml` file:
+1. Add `liquid_pull_to_refresh` to your `pubspec.yaml` dependencies:
 
 ```yaml
 dependencies:
-  liquid_pull_to_refresh: ^1.0.0
+  liquid_pull_to_refresh: ^latest_version
 ```
 
-2. Run the following command to install the package:
+2. Install the package via the command line by running:
 
 ```bash
 $ flutter pub get
 ```
 
-3. Finally, import the package in your Dart code:
+## Usage
+
+To use the Liquid Pull To Refresh widget, follow the steps below:
+
+1. Import the `liquid_pull_to_refresh.dart` file into your project:
 
 ```dart
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 ```
 
-## Usage Guide
-
-To use Liquid-Pull-To-Refresh, simply wrap your ListView, GridView, or any other scrollable widget with the `LiquidPullToRefresh` widget:
+2. Wrap your `ListView`, `GridView`, `CustomScrollView`, or any other scrollable widget in the `LiquidPullToRefresh`:
 
 ```dart
 LiquidPullToRefresh(
+  key: _refreshIndicatorKey,
   onRefresh: _handleRefresh,
   child: ListView.builder(
-    itemBuilder: (context, index) => ListTile(title: Text('Item $index')),
-    itemCount: 30,
-  ),
+    itemBuilder: (context, index) => ListTile(title: Text("Item $index")),
+    itemCount: 10,
+  )
 );
 ```
 
-In this example, `_handleRefresh` is a callback function that will be invoked when the user triggers a refresh. This function should return a `Future` to indicate the completion of the refresh process.
+3. Create a function that performs the desired action on refresh (e.g., data fetching):
+
+```dart
+Future<void> _handleRefresh() async {
+  // update data and state here
+  await Future.delayed(Duration(seconds: 3));
+}
+```
+
+For more information and advanced usage, please refer to the [example project](https://github.com/thisisyoussef/Liquid-Pull-To-Refresh/tree/master/example).
 
 ## Features and Functionality
 
-- Attractive liquid physics-based animation during the refresh process.
-- Customizable colors, opacity, and other appearance attributes.
-- Adjustable refresh trigger threshold and other behavior settings.
-- Compatible with both Android and iOS platforms.
+- Unique and visually engaging liquid-based design
+- Highly customizable: colors, opacity, displacement, etc.
+- Integrated with `ScrollController` for programmatic control
+- Supports various scrollable widgets like `ListView`, `GridView`, and `CustomScrollView`
+- Easy installation and usage
+- Prebuilt example project for quick testing and understanding
 
-## Contributing Guidelines
+## Contributing
 
-To contribute to this project, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for detailed guidelines.
+Contributions are welcomed for this project. Please review the [contributing guidelines](https://github.com/thisisyoussef/Liquid-Pull-To-Refresh/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/thisisyoussef/Liquid-Pull-To-Refresh/blob/master/CODE_OF_CONDUCT.md) before making any changes or submitting a pull request. For any questions or issues, please open an issue on GitHub.
 
-## License Information
+## License
 
-This project is licensed under the [MIT License](LICENSE). For more information, please refer to the [LICENSE](LICENSE) file.
+This project is licensed under the MIT License. Please see the [license file](https://github.com/thisisyoussef/Liquid-Pull-To-Refresh/blob/master/LICENSE) for more information.
 
-## Contact Information
+## Contact
 
-For any questions, feedback, or issues, please feel free to reach out to the repository owner or create an issue in the GitHub repository. Your input and support are greatly appreciated.
+If you have any questions or queries related to the project, feel free to reach out to the maintainer:
 
-Owner: [Youssef](https://github.com/thisisyoussef)
-Repository: [Liquid-Pull-To-Refresh](https://github.com/thisisyoussef/Liquid-Pull-To-Refresh)
+- Youssef: [GitHub](https://github.com/thisisyoussef)
+
+Additionally, you can open an issue in the repository for any support requests or bug reports.
